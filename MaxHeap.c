@@ -60,9 +60,14 @@ void insert(struct Heap *heap, int data){
 }
 
 void delete(struct Heap *heap){
-    heap->arr[0] = heap->arr[heap->size];
-    heapifyDown(heap, heap->size);
+    if(heap == 0){
+        printf("No elements in Heap\n");
+        return;
+    }
+
+    heap->arr[0] = heap->arr[heap->size - 1];
     heap->size--;
+    heapifyDown(heap, 0);
 }
 
 int main(){
