@@ -39,7 +39,11 @@ void heapifyDown(struct Heap *heap, int idx){
             temp = right_child;
         }
         if(temp != idx){
-            
+            swap(&heap->arr[idx], &heap->arr[temp]);
+            idx = temp;
+        }
+        else{
+            break;
         }
     }
 }
