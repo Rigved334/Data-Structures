@@ -3,7 +3,7 @@
 
 struct Heap{
     int size;
-    int arr[100];
+    int arr[32767];
 };
 
 void swap(int *a, int *b){
@@ -46,6 +46,16 @@ void heapifyDown(struct Heap *heap, int idx){
             break;
         }
     }
+}
+
+void insert(struct Heap *heap, int data){
+    if(heap->size > 32767){
+        printf("Not enough space\n");
+        return;
+    }
+
+    heap->arr[heap->size] = data;
+    heap->size++;
 }
 
 int main(){
