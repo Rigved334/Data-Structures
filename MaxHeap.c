@@ -70,9 +70,44 @@ void delete(struct Heap *heap){
     heapifyDown(heap, 0);
 }
 
+int peek(struct Heap *heap){
+    if(heap == 0){
+        printf("No elements in Heap\n");
+        return -1;
+    }
+
+    return heap->arr[0];
+}
+
+void printHeap(struct Heap *heap){
+    if(heap == 0){
+        printf("No elements in Heap\n");
+        return;
+    }
+
+    printf("\nHeap:\n");
+    for(int i = 0; i < heap->size; i++){
+        printf("%d ", heap->arr[i]);
+    }
+}
+
 int main(){
 
+    struct Heap *heap = malloc(sizeof(struct Heap));
 
+    insert(&heap, 1);
+    insert(&heap, 2);
+    insert(&heap, 3);
+    insert(&heap, 4);
+    insert(&heap, 5);
+    insert(&heap, 6);
+
+    delete(&heap);
+    printf("Deleted 6\n");
+
+    peek(&heap);
+
+    printHeap(&heap);
 
     return 0;
 }
