@@ -32,7 +32,7 @@ void heapifyDown(struct Heap *heap, int idx){
         int left_child = 2 * idx + 1;
         int right_child = 2 * idx + 2;
 
-        
+        if(left_child < heap->size && heap->arr[idx] )
     }
 }
 
