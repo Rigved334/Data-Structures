@@ -3,7 +3,7 @@
 
 struct Heap{
     int size;
-    struct Heap *arr;
+    int arr[100];
 };
 
 void swap(int *a, int *b){
@@ -13,9 +13,9 @@ void swap(int *a, int *b){
 }
 
 void heapifyUp(struct Heap *heap, int idx){
-    int parent_idx = (idx - 1) / 2;
-    
     while(idx > 0){
+        int parent_idx = (idx - 1) / 2;
+
         if(heap->arr[parent_idx] < heap->arr[idx]){
             swap(&heap->arr[parent_idx], &heap->arr[idx]);
             idx = parent_idx;
@@ -24,6 +24,10 @@ void heapifyUp(struct Heap *heap, int idx){
             break;
         }
     }
+}
+
+void heapifyDown(struct Heap *heap, int idx){
+    
 }
 
 int main(){
