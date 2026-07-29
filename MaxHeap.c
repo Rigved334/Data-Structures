@@ -27,7 +27,13 @@ void heapifyUp(struct Heap *heap, int idx){
 }
 
 void heapifyDown(struct Heap *heap, int idx){
-    
+    while(1){
+        int temp = idx;
+        int left_child = 2 * idx + 1;
+        int right_child = 2 * idx + 2;
+
+        
+    }
 }
 
 int main(){
