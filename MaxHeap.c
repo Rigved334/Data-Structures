@@ -7,9 +7,14 @@ struct Heap{
 };
 
 void swap(int *a, int *b){
-    int *temp = *a;
+    int temp = *a;
     *a = *b;
-    *b = *temp;
+    *b = temp;
+}
+
+void heapifyUp(struct Heap *heap){
+    int parent_idx;
+
 }
 
 int main(){
