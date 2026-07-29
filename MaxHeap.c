@@ -55,7 +55,14 @@ void insert(struct Heap *heap, int data){
     }
 
     heap->arr[heap->size] = data;
+    heapifyUp(heap, heap->size);
     heap->size++;
+}
+
+void delete(struct Heap *heap){
+    heap->arr[0] = heap->arr[heap->size];
+    heapifyDown(heap, heap->size);
+    heap->size--;
 }
 
 int main(){
