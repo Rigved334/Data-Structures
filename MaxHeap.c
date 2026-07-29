@@ -85,7 +85,7 @@ void printHeap(struct Heap *heap){
         return;
     }
 
-    printf("\nHeap:\n");
+    printf("Heap:\n");
     for(int i = 0; i < heap->size; i++){
         printf("%d ", heap->arr[i]);
     }
@@ -93,7 +93,8 @@ void printHeap(struct Heap *heap){
 
 int main(){
 
-    struct Heap *heap = malloc(sizeof(struct Heap));
+    struct Heap heap;
+    heap.size = 0;
 
     insert(&heap, 1);
     insert(&heap, 2);
@@ -103,7 +104,6 @@ int main(){
     insert(&heap, 6);
 
     delete(&heap);
-    printf("Deleted 6\n");
 
     peek(&heap);
 
