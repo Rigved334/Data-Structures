@@ -129,8 +129,37 @@ void delete(struct HashMap *map, char key[]){
     }
 }
 
-void printHashMap(struct HashMap *map);
-void freeHashMap(struct HashMap *map);
+void printHashMap(struct HashMap *map){
+    for(int i = 0; i < map->capacity; i++){
+        struct Node *temp = map->arr[i];
+        
+        if(temp == NULL){
+            printf("Bucket %d -> Map does not exist\n", i + 1);
+            continue;
+        }
+
+        printf("Bucket %d -> ", i + 1);
+        while(temp != NULL){
+            printf("%s: %d -> ",temp->key, temp->value);
+            temp = temp->next;
+        }
+        printf("NULL\n");
+    }
+}
+
+void freeHashMap(struct HashMap *map){
+    for(int i = 0; i < map->capacity; i++){
+        struct Node *temp = map->arr[i];
+        while(temp != NULL){
+            struct Node *new = temp->next;
+            free(temp);
+            temp = new;
+        }
+    }
+    free(map->arr);
+    free(map);
+    printf("Successfully Freed HashMap\n");
+}
 
 int main(){
 
@@ -139,15 +168,20 @@ int main(){
         return 1;
     }
 
-    insert(map, "rigved", 100);
-    insert(map, "praveen", 50);
-    insert(map, "kiran", 25);
+    insert(map, "Rigved", 100);
+    insert(map, "Praveen", 50);
+    insert(map, "Kiran", 40);
+    insert(map, "Srajan", 80);
+    insert(map, "Aaradhy", 10);
 
-    printf("Key: %d\n", (search(map, "rigved")));
-    printf("Key: %d\n", (search(map, "praveen")));
-    printf("Key: %d\n", (search(map, "kiran")));
-    delete(map, "praveen");
-    printf("Key: %d\n", (search(map, "praveen")));
+    printHashMap(map);
+    printf("\n");
+    int key = search(map, "Rigved");
+    char *searching = (key != -1) ? "Found" : "Not Found";
+    printf("%s -> ", searching);
+    printf("Rigved: %d\n", key);
+    printf("\n");
+    freeHashMap(map);
 
     return 0;
 }
