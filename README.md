@@ -1,1 +1,1 @@
-Data Structures Library using C
+Data Structures Library from scratch using C
