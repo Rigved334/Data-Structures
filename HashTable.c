@@ -172,7 +172,6 @@ int main(){
     insert(map, "Praveen", 50);
     insert(map, "Kiran", 40);
     insert(map, "Srajan", 80);
-    insert(map, "Aaradhy", 10);
 
     printHashMap(map);
     printf("\n");
